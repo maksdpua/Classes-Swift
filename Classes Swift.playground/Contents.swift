@@ -25,6 +25,7 @@ class Student {
 
 let student1 = Student(_name: "Bob", _age: 18)
 
+
 //student1.name = "Alex"
 //student1.age = 21
 print(student1.name)
