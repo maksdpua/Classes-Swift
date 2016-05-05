@@ -27,6 +27,7 @@ struct StudentStruct {
     
     var name : String
     var age: Int
+    
 }
 
 let stClass1 = Student(_name: "Bob", _age: 18)
@@ -69,18 +70,45 @@ func addOneYear(student: Student) {
     student.age += 1
 }
 
-func addOneYear(student: StudentStruct) {
+func addOneYear(inout student: StudentStruct) {
     student.age += 1
 }
 
 stStruct1.age
-addOneYear(stStruct1)
+addOneYear(&stStruct1)
 stStruct1.age
 
 stClass1.age
 addOneYear(stClass1)
 stClass1.age
 
+var arrayStructs = [stStruct1]
+arrayStructs[0]
+arrayStructs[0].age = 50
+stStruct1.age
+
+stClass1.age
+var arrayClasses = [stClass1]
+arrayClasses[0]
+arrayClasses[0].age = 50
+arrayClasses[0]
+stClass1.age
+stClass1.name
+
+
+struct Stud {
+    var firstName : String {
+        willSet(newFirstName) {
+            print("will set " + newFirstName + " instead of " + firstName)
+        }
+        didSet(oldFirstName) {
+            print("did set " + firstName + " instead of " + oldFirstName)
+        }
+    }
+}
+
+var stud1 = Stud(firstName: "Alex")
+stud1.firstName = "Bob"
 
 
 
