@@ -9,6 +9,8 @@
 //
 //student3.nam
 
+import Foundation
+
 class Student {
     var name : String
     var age : Int
@@ -98,17 +100,25 @@ stClass1.name
 
 struct Stud {
     var firstName : String {
-        willSet(newFirstName) {
-            print("will set " + newFirstName + " instead of " + firstName)
+        willSet {
+            print("will set " + newValue + " instead of " + firstName)
         }
-        didSet(oldFirstName) {
-            print("did set " + firstName + " instead of " + oldFirstName)
+        didSet {
+            print("did set " + firstName + " instead of " + oldValue)
+            firstName = firstName.capitalizedString
+        }
+    }
+    var lastName : String {
+        didSet {
+            lastName = lastName.capitalizedString
         }
     }
 }
 
-var stud1 = Stud(firstName: "Alex")
-stud1.firstName = "Bob"
+var stud1 = Stud(firstName: "Alex", lastName: "someLastName")
+stud1.firstName = "ice"
+stud1
+
 
 
 
