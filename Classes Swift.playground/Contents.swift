@@ -108,18 +108,95 @@ struct Stud {
             firstName = firstName.capitalizedString
         }
     }
+    
     var lastName : String {
         didSet {
             lastName = lastName.capitalizedString
+        }
+    }
+    
+    var fullName : String {
+        get {
+           return firstName + " " + lastName
+        }
+        set {
+            print("fullName wants to be set to " + newValue)
+            
+            let words = newValue.componentsSeparatedByString(" ")
+            
+            if words.count > 0 {
+                firstName = words[0]
+            }
+            
+            if words.count > 1 {
+                lastName = words[1]
+            }
         }
     }
 }
 
 var stud1 = Stud(firstName: "Alex", lastName: "someLastName")
 stud1.firstName = "ice"
-stud1
+stud1.lastName = "last"
+stud1.fullName = "name lastName"
+stud1.fullName
 
 
+class Human {
+    var name : String
+    
+    static let maxAge = 100
+    var age : Int {
+        didSet {
+            if age > Human.maxAge {
+                age = oldValue
+            }
+        }
+    }
+    
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+}
+
+enum Direction {
+    
+    static let enumDescription = "Directions in the game"
+    
+    case Left
+    case Right
+    case Top
+    case Bottom
+    
+}
+
+struct Cat {
+    var name : String
+    static let maxAge = 20
+    static var totalCats = 0
+    var age : Int {
+        didSet {
+            if age > Cat.maxAge {
+                age = oldValue
+            }
+        }
+    }
+    
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+        
+        Cat.totalCats += 1
+    }
+}
 
 
+let human = Human(name: "Peter", age: 40)
 
+let cat1 = Cat(name: "Whiten1", age: 10)
+let cat2 = Cat(name: "Whiten2", age: 11)
+let cat3 = Cat(name: "Whiten3", age: 12)
+
+
+Cat.totalCats
