@@ -237,9 +237,16 @@ let cat3 = Cat(name: "Whiten3", age: 12)
 
 Cat.totalCats
 
+//methodsmark
+
 struct Point {
     var x : Int
     var y : Int
+    
+    mutating func moveByXandY(x: Int, y: Int) {
+        self.x += x
+        self.y += y
+    }
     
 }
 
@@ -252,4 +259,6 @@ func move(point: Point, byX x: Int, byY y: Int) -> Point {
 
 var p = Point(x: 1, y: 1)
 
-move(p, byX: 2, byY: 4)
+//move(p, byX: 2, byY: 4)
+
+p.moveByXandY(2, y: 4)
