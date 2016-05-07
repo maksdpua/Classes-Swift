@@ -142,10 +142,26 @@ stud1.fullName = "name lastName"
 stud1.fullName
 
 
+let MaxNameLength = 2
+
+
+
 class Human {
-    var name : String
+    var name : String {
+        didSet {
+            if name.characters.count > MaxNameLength {
+                name = oldValue
+            }
+        }
+    }
     
-    static let maxAge = 100
+    lazy var storyOfMyLife = "This is a story of my entire life..."
+    
+//    static let maxAge = 100
+    
+    class var maxAge : Int {
+        return 100
+    }
     var age : Int {
         didSet {
             if age > Human.maxAge {
@@ -169,7 +185,22 @@ enum Direction {
     case Top
     case Bottom
     
+    var isVertical : Bool {
+        return self == .Top || self == .Bottom
+    }
+ 
+    var isHorizonatl : Bool {
+        return !isVertical
+    }
 }
+
+let d = Direction.Right
+
+d.isVertical
+d.isHorizonatl
+
+
+Direction.enumDescription
 
 struct Cat {
     var name : String
@@ -194,9 +225,31 @@ struct Cat {
 
 let human = Human(name: "Peter", age: 40)
 
+human.name = "ttttttttt"
+human.storyOfMyLife
+human
+
+
 let cat1 = Cat(name: "Whiten1", age: 10)
 let cat2 = Cat(name: "Whiten2", age: 11)
 let cat3 = Cat(name: "Whiten3", age: 12)
 
 
 Cat.totalCats
+
+struct Point {
+    var x : Int
+    var y : Int
+    
+}
+
+func move(point: Point, byX x: Int, byY y: Int) -> Point {
+    var a = point
+    a.x += x
+    a.y += y
+    return point
+}
+
+var p = Point(x: 1, y: 1)
+
+move(p, byX: 2, byY: 4)
