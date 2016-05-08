@@ -247,6 +247,9 @@ struct Point {
         self.x += x
         self.y += y
     }
+//    mutating func moveByX(x: Int, andY y: Int) {
+//        self = Point(x: self.x + x, y: self.y + y)
+//    }
     
 }
 
@@ -261,4 +264,21 @@ var p = Point(x: 1, y: 1)
 
 //move(p, byX: 2, byY: 4)
 
+//p.moveByX(2, andY: 4)
+
+
 p.moveByXandY(2, y: 4)
+
+enum Color {
+    case White
+    case Black
+    
+    mutating func invert() {
+        if self == White {
+            self = Black
+        } else {
+            self = White
+        }
+//        self = self == White ? Black : White
+    }
+}
