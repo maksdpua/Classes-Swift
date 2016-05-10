@@ -311,5 +311,121 @@ c.invert().printColor()
 Color.numberOfElements()
 
 
+//subscriptsmark
 
+
+let arrayS = ["a", "b", "c"]
+arrayS[0]
+arrayS[1]
+arrayS[2]
+
+struct Family {
+    var father = "Father"
+    var mother = "Mother"
+    var kids = ["Kid1", "Kid2", "Kid3"]
+    
+    var count : Int {
+        return 2 + kids.count
+    }
+    
+    subscript(index: Int) -> String? {
+        get {
+            switch(index) {
+            case 0: return father
+            case 1: return mother
+            case 2..<(2 + kids.count): return kids[index - 2]
+            default: return nil
+            }
+        }
+        set {
+            
+            let value = newValue ?? ""
+            
+            switch(index) {
+            case 0: return father = value
+            case 1: return mother = value
+            case 2..<(2 + kids.count): kids[index - 2] = value
+            default: break
+            }
+        }
+    }
+    
+    subscript(index: Int, suffix: String) -> String? {
+        var name = self[index] ?? ""
+        name += " " + suffix
+        return name
+    }
+}
+
+var family = Family()
+
+family.father
+family.kids[0]
+
+family[0]
+family[1]
+family[2]
+
+family[0] = "Daddy"
+family.father
+family[1] = "Mommy"
+family.mother
+family[2] = "Baddy"
+family[8]
+family[2, "the great"]!
+
+
+struct Field {
+    
+    var dict = [String: String]()
+    
+    func keyForColumn(column: String, andRow row: Int) -> String {
+        return column + String(row)
+    }
+    
+    subscript(column: String, row: Int) -> String? {
+        get {
+            return dict[keyForColumn(column, andRow: row)]
+        }
+        set {
+            dict[keyForColumn(column, andRow: row)] = newValue
+        }
+    }
+}
+
+
+var field = Field()
+
+field["a", 5]
+
+field["a", 5] = "X"
+
+field["a", 5]
+
+
+class Human2 {
+    var firstName : String = ""
+    var lastName : String = ""
+    
+    var fullName : String {
+        return firstName + " " + lastName
+    }
+    
+    func sayHello() -> String {
+        return "Hello"
+    }
+}
+
+class Student2: Human2 {
+    override func sayHello() -> String {
+        return super.sayHello() + " my friend"
+    }
+    
+    override var fullName: String {
+         return firstName
+    }
+}
+
+let studnet = Student2()
+studnet.sayHello()
 
