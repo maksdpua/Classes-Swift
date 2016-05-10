@@ -32,5 +32,20 @@
          selectedRepresentationIndex = "0"
          shouldTrackSuperviewWidth = "NO">
       </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "#CharacterRangeLen=17&amp;CharacterRangeLoc=7831&amp;EndingColumnNumber=21&amp;EndingLineNumber=455&amp;StartingColumnNumber=5&amp;StartingLineNumber=455&amp;Timestamp=484602127.035153"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "#CharacterRangeLen=23&amp;CharacterRangeLoc=7825&amp;EndingColumnNumber=25&amp;EndingLineNumber=455&amp;StartingColumnNumber=2&amp;StartingLineNumber=455&amp;Timestamp=484602127.035242"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "#CharacterRangeLen=31&amp;CharacterRangeLoc=7210&amp;EndingColumnNumber=47&amp;EndingLineNumber=422&amp;StartingColumnNumber=16&amp;StartingLineNumber=422&amp;Timestamp=484601978.714271"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
    </TimelineItems>
 </Timeline>

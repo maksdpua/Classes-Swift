@@ -416,6 +416,8 @@ class Human2 {
     }
 }
 
+let human2 = Human2()
+
 class Student2: Human2 {
     override func sayHello() -> String {
         return super.sayHello() + " my friend"
@@ -424,8 +426,34 @@ class Student2: Human2 {
     override var fullName: String {
          return firstName
     }
+    
+    override var firstName: String {
+        set {
+            super.firstName = newValue + " :)"
+        }
+        get {
+            return super.firstName
+        }
+    }
+    
+    final override var lastName: String {
+        didSet {
+            print("new value " + self.lastName)
+        }
+    }
 }
 
 let studnet = Student2()
 studnet.sayHello()
+
+studnet.firstName = "Name"
+studnet.lastName = "Igor"
+studnet.lastName
+
+let arrayPoly  = [studnet, human2]
+print("-----")
+for value in arrayPoly {
+    print(value.sayHello())
+}
+
 
