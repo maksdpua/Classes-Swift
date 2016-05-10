@@ -270,15 +270,46 @@ var p = Point(x: 1, y: 1)
 p.moveByXandY(2, y: 4)
 
 enum Color {
+    
+    static func numberOfElements() -> Int {
+        self.printColor()
+        return 2
+    }
+    
     case White
     case Black
     
-    mutating func invert() {
+    mutating func invert() -> Color{
         if self == White {
             self = Black
         } else {
             self = White
         }
 //        self = self == White ? Black : White
+        return self
+    }
+    func printColor() {
+        if self == White {
+            print("White")
+        } else {
+            print("Black")
+        }
+    }
+    
+    static func printColor() {
+        print("Enum")
     }
 }
+var c = Color.White
+
+c.printColor()
+
+c.invert().printColor()
+
+c.invert().printColor()
+
+Color.numberOfElements()
+
+
+
+
